@@ -617,7 +617,7 @@ h3,
 }
 .share-buttons {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 9px;
   margin-top: 26px;
 }
@@ -625,21 +625,13 @@ h3,
   border: 0;
   border-radius: 7px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 9px;
-  min-height: 78px;
-  font-size: 11px;
-  padding: 13px 5px;
-}
-.wechat {
-  background: var(--accent);
-  color: white;
-}
-.kakao {
-  background: #f5df78;
-  color: #453d27;
+  min-height: 54px;
+  font-size: 14px;
+  padding: 13px 16px;
 }
 .share-buttons .link {
   background: transparent;
@@ -1162,13 +1154,6 @@ html[lang="ko-KR"] .hero-names {
 .share-section {
   padding-top: 0;
 }
-.wechat {
-  background: #b65070;
-}
-.kakao {
-  background: #ffe4a8;
-  color: #794546;
-}
 footer {
   padding: 24px 0 0;
   border-top: 1px dashed #da97ab75;
@@ -1344,7 +1329,7 @@ html[lang="ko-KR"] .event-copy h3 {
     gap: 6px;
   }
   .share-buttons button {
-    font-size: 10px;
+    font-size: 13px;
   }
 }
 /* Fade only blank paper at the footer join; keep the supplied faces fully visible. */

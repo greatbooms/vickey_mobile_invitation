@@ -7,9 +7,7 @@ import {
   Copy,
   Heart,
   MapPin,
-  MessageCircle,
   Navigation,
-  Share2,
   Sparkles,
   TrainFront,
   Car,
@@ -27,7 +25,6 @@ import {
   formatEventTime,
   resolveLanguage,
 } from "./lib/invitation";
-import { shareKakao } from "./lib/integrations";
 import { RibbonCharm } from "./components/RibbonCharm";
 import { PaperBackground } from "./components/PaperBackground";
 import { WeatherCard } from "./components/WeatherCard";
@@ -47,9 +44,8 @@ export default function App() {
     [now, setNow] = useState(Date.now()),
     [toast, setToast] = useState("");
   const [dialog, setDialog] = useState<{ text: string; value?: string } | null>(
-      null,
-    ),
-    [busy, setBusy] = useState(false);
+    null,
+  );
   const [mapStatus, setMapStatus] = useState<"loading" | "loaded" | "error">(
     "loading",
   );
@@ -116,37 +112,6 @@ export default function App() {
       setToast(c.copied);
     } catch {
       setDialog({ text: c.manualCopy, value });
-    }
-  }
-  async function kakao() {
-    setBusy(true);
-    try {
-      await shareKakao(
-        c.title,
-        `${c.names.join(" & ")} · ${dateLabel}`,
-        shareUrl(),
-        invitation.hero,
-      );
-    } catch {
-      setDialog({ text: c.kakaoGuide, value: shareUrl() });
-    } finally {
-      setBusy(false);
-    }
-  }
-  async function systemShare() {
-    if (!navigator.share) {
-      await copy(shareUrl());
-      return;
-    }
-    try {
-      await navigator.share({
-        title: c.title,
-        text: c.names.join(" & "),
-        url: shareUrl(),
-      });
-    } catch (error) {
-      if (!(error instanceof DOMException && error.name === "AbortError"))
-        setDialog({ text: c.failed, value: shareUrl() });
     }
   }
   return (
@@ -438,32 +403,11 @@ export default function App() {
             <h2>{c.shareTitle}</h2>
             <p className="section-intro">{c.shareNote}</p>
             <div className="share-buttons">
-              <button
-                className="wechat"
-                onClick={() =>
-                  setDialog({ text: c.wechatGuide, value: shareUrl() })
-                }
-              >
-                <MessageCircle size={20} />
-                <span>{c.wechat}</span>
-              </button>
-              <button className="kakao" onClick={kakao} disabled={busy}>
-                {busy ? (
-                  <LoaderCircle size={20} className="spin" />
-                ) : (
-                  <MessageCircle size={20} fill="currentColor" />
-                )}
-                <span>{c.kakao}</span>
-              </button>
               <button className="link" onClick={() => copy(shareUrl())}>
                 <Copy size={19} />
                 <span>{c.copyLink}</span>
               </button>
             </div>
-            <button className="text-button" onClick={systemShare}>
-              <Share2 size={15} />
-              {c.systemShare}
-            </button>
           </section>
           <footer>
             <RibbonCharm />
@@ -495,8 +439,8 @@ export default function App() {
               {text}
             </a>
           ))}
-          <button onClick={systemShare} aria-label={c.systemShare}>
-            <Share2 size={16} />
+          <button onClick={() => copy(shareUrl())} aria-label={c.copyLink}>
+            <Copy size={16} />
           </button>
         </nav>
       </main>
