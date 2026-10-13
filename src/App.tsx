@@ -27,6 +27,7 @@ import {
 import { RibbonCharm } from "./components/RibbonCharm";
 import { PaperBackground } from "./components/PaperBackground";
 import { WeatherCard } from "./components/WeatherCard";
+import { TravelSection } from "./components/TravelSection";
 function initialLanguage(): Language {
   const query = new URLSearchParams(location.search).get("lang");
   if (query !== null) return resolveLanguage(query);
@@ -389,6 +390,7 @@ export default function App() {
               <span />
             </div>
           </section>
+          <TravelSection language={language} onCopy={copy} />
           <div className="weather-section">
             <WeatherCard language={language} />
           </div>
