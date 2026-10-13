@@ -88,8 +88,8 @@ export const locales: Record<Language, Copy> = {
     copyAddress: "复制地址",
     transport: [
       {
-        title: "当天联络人：［姓名］",
-        note: "联系电话：［手机号］",
+        title: "当天联络人：曹梦露",
+        note: "联系电话：15697163635",
       },
     ],
     shareTitle: "分享我们的喜悦",
@@ -158,8 +158,8 @@ export const locales: Record<Language, Copy> = {
     copyAddress: "Copy address",
     transport: [
       {
-        title: "Wedding day contact: [Name]",
-        note: "Phone: [Phone number]",
+        title: "Wedding day contact: 曹梦露",
+        note: "Phone: 15697163635",
       },
     ],
     shareTitle: "Share our joy",
@@ -231,8 +231,8 @@ export const locales: Record<Language, Copy> = {
     copyAddress: "주소 복사",
     transport: [
       {
-        title: "당일 연락 담당자: [이름]",
-        note: "연락처: [휴대전화 번호]",
+        title: "당일 연락 담당자: 曹梦露",
+        note: "연락처: 15697163635",
       },
     ],
     shareTitle: "기쁜 소식을 나눠요",
