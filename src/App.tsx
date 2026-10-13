@@ -270,42 +270,11 @@ export default function App() {
               ))}
             </div>
           </section>
-          <section className="schedule-section section" id="schedule">
-            <RibbonCharm className="timeline-sprig" />
-            <p className="eyebrow">THE WEDDING DAY</p>
-            <h2>{c.scheduleTitle}</h2>
-            <p className="section-intro">{c.scheduleIntro}</p>
-            <ol className="timeline">
-              {c.events.map((event, i) => {
-                const Icon = eventIcons[i];
-                return (
-                  <li key={event.title}>
-                    <div className="event-icon">
-                      <Icon size={33} strokeWidth={1} />
-                      <span className="icon-sparkle">✧</span>
-                    </div>
-                    <div className="timeline-node">
-                      <span>{i + 1}</span>
-                    </div>
-                    <div className="event-copy">
-                      <time>{invitation.schedule[i]}</time>
-                      <h3>{event.title}</h3>
-                      <p>{event.note}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
-            <div className="ornament">
-              <span />
-              <Heart size={13} strokeWidth={1.2} />
-              <span />
-            </div>
-          </section>
           <section className="venue-section section" id="venue">
-            <p className="eyebrow">A PLACE FOR OUR PROMISES</p>
-            <h2>{c.venueTitle}</h2>
-            <h3 className="venue-name">{c.venueName}</h3>
+            <RibbonCharm className="timeline-sprig" />
+            <p className="eyebrow">{c.weddingPart}</p>
+            <h2>Wedding Day</h2>
+            <h3 className="venue-name">{c.venueLabel}</h3>
             <p className="address">{c.address}</p>
             {invitation.venue.mapImage ? (
               <div
@@ -389,6 +358,37 @@ export default function App() {
                   </div>
                 );
               })}
+            </div>
+          </section>
+          <section className="schedule-section section" id="schedule">
+            <RibbonCharm className="timeline-sprig" />
+            <h2>{c.scheduleTitle}</h2>
+            <p className="section-intro">{c.scheduleIntro}</p>
+            <ol className="timeline">
+              {c.events.map((event, i) => {
+                const Icon = eventIcons[i];
+                return (
+                  <li key={event.title}>
+                    <div className="event-icon">
+                      <Icon size={33} strokeWidth={1} />
+                      <span className="icon-sparkle">✧</span>
+                    </div>
+                    <div className="timeline-node">
+                      <span>{i + 1}</span>
+                    </div>
+                    <div className="event-copy">
+                      <time>{invitation.schedule[i]}</time>
+                      <h3>{event.title}</h3>
+                      <p>{event.note}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+            <div className="ornament">
+              <span />
+              <Heart size={13} strokeWidth={1.2} />
+              <span />
             </div>
           </section>
           <div className="weather-section">

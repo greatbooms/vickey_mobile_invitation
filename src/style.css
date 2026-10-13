@@ -613,16 +613,17 @@ h3,
 }
 .share-section {
   padding-top: 0;
-  padding-bottom: 50px;
+  padding-bottom: 36px;
 }
 .share-section h2 {
   font-size: 25px;
-  margin-top: 26px;
+  margin-top: 14px;
 }
 .share-section .share-ribbon {
   display: block;
-  width: 105px;
+  width: 72px;
   margin: 0 auto;
+  opacity: 0.55;
 }
 .share-help {
   margin: 8px auto 0;
@@ -635,7 +636,7 @@ h3,
   display: grid;
   grid-template-columns: 1fr;
   gap: 9px;
-  margin-top: 26px;
+  margin-top: 18px;
 }
 .share-buttons button {
   border: 0;
@@ -645,17 +646,17 @@ h3,
   align-items: center;
   justify-content: center;
   gap: 9px;
-  min-height: 54px;
+  min-height: 48px;
   font-size: 14px;
   padding: 13px 16px;
 }
 .share-buttons .link {
-  background: var(--accent);
-  border: 1px solid var(--accent);
-  color: white;
+  background: transparent;
+  border: 1px solid #d5a3b0;
+  color: var(--accent);
 }
 .share-buttons .link:hover {
-  background: #9e3f5d;
+  background: #fff7ee85;
 }
 .share-buttons .link:focus-visible {
   outline: 2px solid var(--accent);
