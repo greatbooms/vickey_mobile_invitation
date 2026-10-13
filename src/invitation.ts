@@ -6,6 +6,7 @@ export const invitation = {
   timezone: "Asia/Shanghai",
   isDemo: false,
   venue,
+  contact: { phone: "15697163635", dial: "+8615697163635" },
   schedule: ["15:00–15:50", "16:26", "18:08", "20:08"],
   backgrounds: {
     header: "/images/pink/header.jpg",

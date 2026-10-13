@@ -278,7 +278,23 @@ export default function App() {
                     <Phone size={20} strokeWidth={1.5} />
                     <div>
                       <h4>{item.title}</h4>
-                      <p>{item.note}</p>
+                      <p className="contact-phone">
+                        <span>
+                          {item.note}
+                          <a href={`tel:${invitation.contact.dial}`}>
+                            {invitation.contact.phone}
+                          </a>
+                        </span>
+                        <button
+                          type="button"
+                          className="contact-copy"
+                          aria-label={c.copyPhone}
+                          title={c.copyPhone}
+                          onClick={() => copy(invitation.contact.phone)}
+                        >
+                          <Copy size={15} strokeWidth={1.5} />
+                        </button>
+                      </p>
                     </div>
                   </div>
                 );

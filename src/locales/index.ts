@@ -25,6 +25,7 @@ export interface Copy {
   map: string;
   loadMap: string;
   copyAddress: string;
+  copyPhone: string;
   transport: { title: string; note: string }[];
   shareTitle: string;
   shareNote: string;
@@ -86,10 +87,11 @@ export const locales: Record<Language, Copy> = {
     map: "在高德地图中打开",
     loadMap: "查看互动地图",
     copyAddress: "复制地址",
+    copyPhone: "复制电话号码",
     transport: [
       {
         title: "当天联络人：曹梦露",
-        note: "联系电话：15697163635",
+        note: "联系电话：",
       },
     ],
     shareTitle: "分享我们的喜悦",
@@ -156,10 +158,11 @@ export const locales: Record<Language, Copy> = {
     map: "Open in AMap",
     loadMap: "View interactive map",
     copyAddress: "Copy address",
+    copyPhone: "Copy phone number",
     transport: [
       {
         title: "Wedding day contact: 曹梦露",
-        note: "Phone: 15697163635",
+        note: "Phone: ",
       },
     ],
     shareTitle: "Share our joy",
@@ -229,10 +232,11 @@ export const locales: Record<Language, Copy> = {
     map: "고덕지도에서 열기",
     loadMap: "인터랙티브 지도 보기",
     copyAddress: "주소 복사",
+    copyPhone: "전화번호 복사",
     transport: [
       {
         title: "당일 연락 담당자: 曹梦露",
-        note: "연락처: 15697163635",
+        note: "연락처: ",
       },
     ],
     shareTitle: "기쁜 소식을 나눠요",
