@@ -652,14 +652,10 @@ h3,
 }
 .hotel-list {
   display: grid;
-  gap: 22px;
+  gap: 40px;
   margin-top: 26px;
 }
 .hotel-card {
-  border: 1px solid #dfa6b280;
-  border-radius: 14px;
-  padding: 20px 16px 10px;
-  background: #fff7ee85;
   min-width: 0;
 }
 .hotel-label {
