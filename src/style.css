@@ -262,10 +262,11 @@ h3,
   margin-top: 12px;
 }
 .couple-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   position: relative;
   justify-content: center;
-  gap: 95px;
+  gap: 32px;
   padding-top: 15px;
 }
 .role {
@@ -274,9 +275,10 @@ h3,
   letter-spacing: 2px;
 }
 .person h3 {
-  font-size: 25px;
+  font-size: clamp(19px, 5vw, 25px);
   margin: 10px 0 9px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  white-space: nowrap;
 }
 .person span {
   font-size: 8px;
@@ -626,6 +628,116 @@ h3,
 .travel-section {
   border-top: 1px dashed #da97ab75;
 }
+.explore-section {
+  border-top: 1px dashed #da97ab75;
+}
+.explore-section .part-title {
+  white-space: pre-line;
+}
+.tips-section {
+  border-top: 1px dashed #da97ab75;
+}
+.tips-list {
+  display: grid;
+  gap: 26px;
+  margin-top: 30px;
+  text-align: left;
+}
+.tips-list h3 {
+  color: var(--accent);
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 9px;
+}
+.tips-list p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+}
+.tips-closing {
+  margin-top: 34px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+  text-wrap: balance;
+}
+.tips-closing p + p {
+  margin-top: 14px;
+}
+.tips-closing .tips-signature {
+  margin-top: 28px;
+  font-size: 20px;
+  color: var(--accent);
+}
+.tips-closing .tips-date {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--gold);
+}
+html[lang="ko-KR"]
+  :is(.travel-copy, .travel-notes, .explore-section, .tips-section) {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+html[lang="en-US"]
+  :is(
+    .travel-copy p,
+    .travel-notes p,
+    .explore-intro,
+    .explore-spots p,
+    .tips-list p
+  ) {
+  text-wrap: pretty;
+}
+.explore-lead {
+  margin: 28px 0 16px;
+  color: var(--accent);
+  font-size: 14px;
+  line-height: 1.9;
+  text-wrap: balance;
+}
+.explore-intro,
+.explore-spots p,
+.explore-reminder {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+.explore-spots {
+  display: grid;
+  gap: 24px;
+  margin-top: 30px;
+  text-align: left;
+}
+.explore-spots article {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 12px;
+}
+.explore-number {
+  font-family: Georgia, serif;
+  color: var(--gold);
+  font-size: 15px;
+  padding-top: 4px;
+}
+.explore-spots h3 {
+  color: var(--accent);
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 7px;
+}
+.explore-spots .explore-local-name {
+  font-size: 11px;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+.explore-reminder {
+  margin-top: 30px;
+  border-left: 2px solid #d5a3b0;
+  padding-left: 15px;
+}
 .travel-section h2 {
   text-wrap: balance;
 }
@@ -633,6 +745,18 @@ h3,
   text-wrap: balance;
   overflow-wrap: anywhere;
   letter-spacing: 1px;
+}
+.part-prefix {
+  display: inline-block;
+  white-space: nowrap;
+}
+.part-text {
+  display: inline-block;
+  max-width: 100%;
+}
+html[lang="ko-KR"] :is(.welcome h2, .invitation-copy p, .part-text) {
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 .travel-copy {
   margin-top: 30px;

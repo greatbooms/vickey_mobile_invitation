@@ -1,3 +1,4 @@
+import { PartTitle } from "./PartTitle";
 import type { Language } from "../locales";
 import { RibbonCharm } from "./RibbonCharm";
 import { LocationMap } from "./LocationMap";
@@ -86,7 +87,7 @@ export function TravelSection({
     <section className="travel-section section" id="travel">
       <RibbonCharm className="section-sprig" />
       <p className="eyebrow">{c.eyebrow}</p>
-      <h2 className="part-title">{c.part}</h2>
+      <PartTitle text={c.part} />
       <div className="travel-copy">
         <h3>{c.arrivalTitle}</h3>
         <p>{c.arrival}</p>

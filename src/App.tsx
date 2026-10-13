@@ -1,3 +1,4 @@
+import { PartTitle } from "./components/PartTitle";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowDown,
@@ -25,6 +26,8 @@ import { PaperBackground } from "./components/PaperBackground";
 import { WeatherCard } from "./components/WeatherCard";
 import { TravelSection } from "./components/TravelSection";
 import { LocationMap } from "./components/LocationMap";
+import { ExploreSection } from "./components/ExploreSection";
+import { TipsSection } from "./components/TipsSection";
 function initialLanguage(): Language {
   const query = new URLSearchParams(location.search).get("lang");
   if (query !== null) return resolveLanguage(query);
@@ -263,10 +266,13 @@ export default function App() {
               ))}
             </div>
           </section>
+          <div className="weather-section">
+            <WeatherCard language={language} />
+          </div>
           <section className="venue-section section" id="venue">
             <RibbonCharm className="timeline-sprig" />
             <p className="eyebrow">{c.weddingEyebrow}</p>
-            <h2 className="part-title">{c.weddingPart}</h2>
+            <PartTitle text={c.weddingPart} />
             <h3 className="venue-name">{c.venueLabel}</h3>
             <p className="address">{c.address}</p>
             <LocationMap
@@ -324,9 +330,8 @@ export default function App() {
             </div>
           </section>
           <TravelSection language={language} onCopy={copy} />
-          <div className="weather-section">
-            <WeatherCard language={language} />
-          </div>
+          <ExploreSection language={language} />
+          <TipsSection language={language} />
           <section className="share-section section" id="share">
             <RibbonCharm className="share-ribbon" />
             <h2>{c.shareTitle}</h2>
@@ -345,8 +350,8 @@ export default function App() {
           <footer>
             <RibbonCharm />
             <p>{c.footer}</p>
-            <span className="footer-names">
-              {c.romanNames[0]} <i>&</i> {c.romanNames[1]}
+            <span className="footer-names" lang="zh-CN">
+              {locales.zh.names[0]} <i>&</i> {locales.zh.names[1]}
             </span>
             {invitation.isDemo && <div className="footer-demo">{c.demo}</div>}
             <small>WITH LOVE · {invitation.date.slice(0, 4)}</small>
