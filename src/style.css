@@ -1574,7 +1574,13 @@ html[lang="ko-KR"] .event-copy h3 {
   line-height: 2;
 }
 .weather-section {
-  padding: 0 25px 48px;
+  padding: 32px 34px 40px;
+}
+@media (max-width: 380px) {
+  .weather-section {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 }
 .weather-card {
   padding: 25px 20px;
