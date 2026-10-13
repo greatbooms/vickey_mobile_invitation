@@ -40,14 +40,17 @@ export function PhotoGallery({ language }: { language: Language }) {
     () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
   const [visible, setVisible] = useState(false);
-  const [status, setStatus] = useState<"loading" | "loaded" | "error">(
-    "loading",
-  );
+  const [imageState, setImageState] = useState<{
+    key: string;
+    status: "loaded" | "error";
+  } | null>(null);
   const [retry, setRetry] = useState(0);
   const root = useRef<HTMLDivElement>(null);
   const start = useRef<{ x: number; y: number } | null>(null);
   const photo = photos[index];
   const src = `/images/gallery/${photo.id}.webp`;
+  const imageKey = `${photo.id}-${retry}`;
+  const status = imageState?.key === imageKey ? imageState.status : "loading";
   const select = (next: number) => {
     setIndex((next + photos.length) % photos.length);
   };
@@ -67,7 +70,6 @@ export function PhotoGallery({ language }: { language: Language }) {
     return () => media.removeEventListener("change", stop);
   }, []);
   useEffect(() => {
-    setStatus("loading");
     const next = new Image();
     next.src = `/images/gallery/${photos[(index + 1) % photos.length].id}.webp`;
   }, [index]);
@@ -124,15 +126,15 @@ export function PhotoGallery({ language }: { language: Language }) {
         }}
       >
         <img
-          key={`${photo.id}-${retry}`}
+          key={imageKey}
           src={retry ? `${src}?retry=${retry}` : src}
           width={photo.width}
           height={photo.height}
           alt={`${c.title} · ${index + 1}`}
           draggable={false}
           fetchPriority={index === 0 ? "high" : "auto"}
-          onLoad={() => setStatus("loaded")}
-          onError={() => setStatus("error")}
+          onLoad={() => setImageState({ key: imageKey, status: "loaded" })}
+          onError={() => setImageState({ key: imageKey, status: "error" })}
         />
         {status === "error" && (
           <div className="gallery-error" role="status">
@@ -140,7 +142,6 @@ export function PhotoGallery({ language }: { language: Language }) {
             <button
               type="button"
               onClick={() => {
-                setStatus("loading");
                 setRetry((value) => value + 1);
               }}
             >
