@@ -3,18 +3,14 @@ import {
   ArrowDown,
   ArrowUp,
   Check,
-  ChevronRight,
   Copy,
   Heart,
-  MapPin,
-  Navigation,
   Sparkles,
   Phone,
   Camera,
   Wine,
   Gem,
   X,
-  LoaderCircle,
 } from "lucide-react";
 import { invitation } from "./invitation";
 import { locales, type Language } from "./locales";
@@ -28,6 +24,7 @@ import { RibbonCharm } from "./components/RibbonCharm";
 import { PaperBackground } from "./components/PaperBackground";
 import { WeatherCard } from "./components/WeatherCard";
 import { TravelSection } from "./components/TravelSection";
+import { LocationMap } from "./components/LocationMap";
 function initialLanguage(): Language {
   const query = new URLSearchParams(location.search).get("lang");
   if (query !== null) return resolveLanguage(query);
@@ -46,10 +43,6 @@ export default function App() {
   const [dialog, setDialog] = useState<{ text: string; value?: string } | null>(
     null,
   );
-  const [mapStatus, setMapStatus] = useState<"loading" | "loaded" | "error">(
-    "loading",
-  );
-  const [mapAttempt, setMapAttempt] = useState(0);
   const modalRef = useRef<HTMLDialogElement>(null);
   const c = locales[language],
     date = new Date(invitation.date),
@@ -276,75 +269,15 @@ export default function App() {
             <h2>Wedding Day</h2>
             <h3 className="venue-name">{c.venueLabel}</h3>
             <p className="address">{c.address}</p>
-            {invitation.venue.mapImage ? (
-              <div
-                className="venue-map-preview"
-                aria-busy={mapStatus === "loading"}
-              >
-                <a
-                  href={invitation.venue.shareUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${c.venueName} · ${c.map}`}
-                >
-                  <img
-                    key={mapAttempt}
-                    src={`${invitation.venue.mapImage}${mapAttempt ? `?retry=${mapAttempt}` : ""}`}
-                    alt={`${c.venueName} · ${c.venueTitle}`}
-                    width="1000"
-                    height="650"
-                    loading="eager"
-                    onLoad={() => setMapStatus("loaded")}
-                    onError={() => setMapStatus("error")}
-                    style={{ opacity: mapStatus === "loaded" ? 1 : 0 }}
-                  />
-                </a>
-                {mapStatus !== "loaded" && (
-                  <div className="image-status" role="status">
-                    <MapPin size={28} strokeWidth={1.3} />
-                    <span>
-                      {mapStatus === "error" ? c.imageFailed : c.imageLoading}
-                    </span>
-                    {mapStatus === "error" && (
-                      <button
-                        className="text-button"
-                        onClick={() => {
-                          setMapStatus("loading");
-                          setMapAttempt((value) => value + 1);
-                        }}
-                      >
-                        {c.retry}
-                      </button>
-                    )}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className="venue-card">
-                <RibbonCharm />
-                <MapPin size={34} strokeWidth={1.3} />
-                <span>{c.venueName}</span>
-              </div>
-            )}
-            <a
-              className="button primary"
-              href={invitation.venue.shareUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Navigation size={17} />
-              {c.map}
-              <ChevronRight size={16} />
-            </a>
-            <div className="venue-actions">
-              <button
-                className="button outlined"
-                onClick={() => copy(invitation.venue.address)}
-              >
-                <Copy size={15} />
-                {c.copyAddress}
-              </button>
-            </div>
+            <LocationMap
+              name={c.venueName}
+              address={invitation.venue.address}
+              url={invitation.venue.shareUrl}
+              image={invitation.venue.mapImage}
+              language={language}
+              onCopy={copy}
+              loading="eager"
+            />
             <div className="transport">
               {c.transport.map((item) => {
                 return (
@@ -400,7 +333,10 @@ export default function App() {
             <p className="section-intro">{c.shareNote}</p>
             <p className="share-help">{c.shareHelp}</p>
             <div className="share-buttons">
-              <button className="link" onClick={() => copy(shareUrl())}>
+              <button
+                className="button outlined link"
+                onClick={() => copy(shareUrl())}
+              >
                 <Copy size={19} />
                 <span>{c.copyLink}</span>
               </button>

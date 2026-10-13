@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { Copy, MapPin, Navigation } from "lucide-react";
 import type { Language } from "../locales";
 import { RibbonCharm } from "./RibbonCharm";
+import { LocationMap } from "./LocationMap";
 
 const hotels = [
   {
@@ -72,42 +71,6 @@ const copy = {
   },
 };
 
-function HotelMap({
-  hotel,
-  fallback,
-}: {
-  hotel: (typeof hotels)[number];
-  fallback: string;
-}) {
-  const [failed, setFailed] = useState(false);
-  return (
-    <a
-      className="hotel-map"
-      href={hotel.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={hotel.name}
-    >
-      {failed ? (
-        <span className="hotel-map-fallback">
-          <MapPin size={24} />
-          {fallback}
-        </span>
-      ) : (
-        <img
-          src={hotel.image}
-          alt={`${hotel.name} · 高德地图`}
-          width="1000"
-          height="650"
-          loading="lazy"
-          decoding="async"
-          onError={() => setFailed(true)}
-        />
-      )}
-    </a>
-  );
-}
-
 export function TravelSection({
   language,
   onCopy,
@@ -133,23 +96,14 @@ export function TravelSection({
             <p className="hotel-label">{c.labels[i]}</p>
             <h3>{hotel.name}</h3>
             <p className="hotel-address">{hotel.address}</p>
-            <HotelMap hotel={hotel} fallback={c.mapFallback} />
-            <a
-              className="button outlined"
-              href={hotel.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Navigation size={16} />
-              {c.map}
-            </a>
-            <button
-              className="hotel-copy-address"
-              onClick={() => onCopy(hotel.address)}
-            >
-              <Copy size={14} />
-              {c.copyAddress}
-            </button>
+            <LocationMap
+              name={hotel.name}
+              address={hotel.address}
+              url={hotel.url}
+              image={hotel.image}
+              language={language}
+              onCopy={onCopy}
+            />
           </article>
         ))}
       </div>
