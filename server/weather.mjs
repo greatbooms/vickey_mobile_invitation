@@ -39,7 +39,7 @@ export function createWeatherService({
     );
     url.searchParams.set("lang", lang);
     url.searchParams.set("localTime", "true");
-    if (path === "daily") url.searchParams.set("days", "7");
+    if (path === "daily") url.searchParams.set("days", "10");
     const response = await fetcher(url.toString(), {
       headers: { "X-QW-Api-Key": key },
       signal: AbortSignal.timeout(8000),

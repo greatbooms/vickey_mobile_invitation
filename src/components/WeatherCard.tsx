@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import {
   Cloud,
   CloudFog,
@@ -168,7 +168,10 @@ export function WeatherCard({ language }: { language: Language }) {
             role="region"
             aria-label={c.forecast}
           >
-            <div className="weather-week">
+            <div
+              className="weather-week"
+              style={{ "--forecast-days": days.length } as CSSProperties}
+            >
               <ol className="weather-days">
                 {days.map((day) => (
                   <li
