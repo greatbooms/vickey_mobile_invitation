@@ -25,6 +25,7 @@ export interface Copy {
   transport: { title: string; note: string }[];
   shareTitle: string;
   shareNote: string;
+  shareHelp: string;
   wechat: string;
   kakao: string;
   copyLink: string;
@@ -52,12 +53,12 @@ export const locales: Record<Language, Copy> = {
     names: ["牛嘉汇", "郭飞琪"],
     romanNames: ["NIU JIAHUI", "GUO FEIQI"],
     invitation: [
-      "从初次相遇，到决定携手一生，",
-      "平凡的日子，因彼此而闪闪发光。",
-      "在这个金秋，我们诚挚地邀请你，",
-      "见证我们的婚礼，分享这份喜悦。",
+      "亲爱的家人和朋友们：",
+      "谢谢你们跨越距离，来见证我们的重要时刻。",
+      "愿这趟南京之行，有婚礼的热闹，也有自在相聚的美好。",
+      "请收下这份邀请，我们在南京等你赴约！",
     ],
-    welcome: "诚挚邀请",
+    welcome: "来南京，参加我们的婚礼",
     couple: "故事里的我们",
     roles: ["新郎", "新娘"],
     coupleNote: "一生很长，想和你慢慢走。",
@@ -89,6 +90,7 @@ export const locales: Record<Language, Copy> = {
     ],
     shareTitle: "分享我们的喜悦",
     shareNote: "把这份邀请，送给我们珍惜的人。",
+    shareHelp: "复制链接，通过微信分享给亲朋好友。",
     wechat: "微信",
     kakao: "KakaoTalk",
     copyLink: "复制链接",
@@ -116,12 +118,12 @@ export const locales: Record<Language, Copy> = {
     names: ["Niu Jiahui", "Guo Feiqi"],
     romanNames: ["NIU JIAHUI", "GUO FEIQI"],
     invitation: [
-      "As we begin a new chapter together,",
-      "you have been part of our story.",
-      "This autumn, we warmly invite you",
-      "to celebrate our wedding and share our joy.",
+      "Dear family and friends,",
+      "Thank you for travelling to celebrate this important moment with us.",
+      "We hope your time in Nanjing brings both the joy of our wedding and lovely moments together.",
+      "Please accept our invitation. We can’t wait to welcome you to Nanjing!",
     ],
-    welcome: "YOU ARE INVITED",
+    welcome: "Join us in Nanjing",
     couple: "The two of us",
     roles: ["THE GROOM", "THE BRIDE"],
     coupleNote: "A lifetime of little moments, together.",
@@ -163,6 +165,7 @@ export const locales: Record<Language, Copy> = {
     ],
     shareTitle: "Share our joy",
     shareNote: "Share this invitation with our loved ones.",
+    shareHelp: "Copy the link and send it through WeChat or KakaoTalk.",
     wechat: "WeChat",
     kakao: "KakaoTalk",
     copyLink: "Copy link",
@@ -193,12 +196,12 @@ export const locales: Record<Language, Copy> = {
     names: ["뉴자후이", "궈페이치"],
     romanNames: ["NIU JIAHUI", "GUO FEIQI"],
     invitation: [
-      "처음 만난 순간부터 평생을 약속하기까지,",
-      "함께한 평범한 날들이 소중한 추억이 되었습니다.",
-      "이 가을, 소중한 여러분을 저희 결혼식에 초대합니다.",
-      "저희의 시작을 함께 축복해 주세요.",
+      "사랑하는 가족과 친구 여러분,",
+      "멀리까지 오셔서 저희의 소중한 순간을 함께해 주셔서 감사합니다.",
+      "이번 난징 여행이 결혼식의 즐거움과 편안한 만남의 추억으로 가득하길 바랍니다.",
+      "이 초대장을 받아 주세요. 난징에서 여러분을 기다리겠습니다!",
     ],
-    welcome: "소중한 여러분을 초대합니다",
+    welcome: "난징에서 함께할 우리의 결혼식",
     couple: "이야기 속의 우리",
     roles: ["신랑", "신부"],
     coupleNote: "앞으로의 모든 날을 함께하고 싶어요.",
@@ -240,6 +243,7 @@ export const locales: Record<Language, Copy> = {
     ],
     shareTitle: "기쁜 소식을 나눠요",
     shareNote: "소중한 사람들에게 이 초대장을 전해 주세요.",
+    shareHelp: "링크를 복사해 카카오톡으로 보내 주세요.",
     wechat: "위챗",
     kakao: "카카오톡",
     copyLink: "링크 복사",

@@ -201,7 +201,7 @@ export default function App() {
           </section>
           <section className="welcome section" id="welcome">
             <RibbonCharm className="section-sprig" />
-            <p className="eyebrow">A LITTLE INVITATION</p>
+            <p className="eyebrow">WELCOME TO OUR WEDDING</p>
             <h2>{c.welcome}</h2>
             <div className="invitation-copy">
               {c.invitation.map((line) => (
@@ -395,13 +395,10 @@ export default function App() {
             <WeatherCard language={language} />
           </div>
           <section className="share-section section" id="share">
-            <div className="ornament">
-              <span />
-              <Sparkles size={16} strokeWidth={1} />
-              <span />
-            </div>
+            <RibbonCharm className="share-ribbon" />
             <h2>{c.shareTitle}</h2>
             <p className="section-intro">{c.shareNote}</p>
+            <p className="share-help">{c.shareHelp}</p>
             <div className="share-buttons">
               <button className="link" onClick={() => copy(shareUrl())}>
                 <Copy size={19} />

@@ -251,6 +251,10 @@ h3,
   font-size: 14px;
   line-height: 2.5;
   color: #956773;
+  overflow-wrap: anywhere;
+}
+.invitation-copy p + p {
+  margin-top: 12px;
 }
 .couple-row {
   display: flex;
@@ -615,6 +619,18 @@ h3,
   font-size: 25px;
   margin-top: 26px;
 }
+.share-section .share-ribbon {
+  display: block;
+  width: 105px;
+  margin: 0 auto;
+}
+.share-help {
+  margin: 8px auto 0;
+  max-width: 320px;
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--muted);
+}
 .share-buttons {
   display: grid;
   grid-template-columns: 1fr;
@@ -634,9 +650,16 @@ h3,
   padding: 13px 16px;
 }
 .share-buttons .link {
-  background: transparent;
-  border: 1px solid var(--line);
-  color: var(--accent);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: white;
+}
+.share-buttons .link:hover {
+  background: #9e3f5d;
+}
+.share-buttons .link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 .text-button {
   border: 0;
