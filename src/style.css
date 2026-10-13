@@ -1636,6 +1636,10 @@ html[lang="ko-KR"] .event-copy h3 {
   overflow-x: auto;
   overscroll-behavior-x: contain;
   padding-bottom: 8px;
+  scrollbar-width: none;
+}
+.weather-scroll::-webkit-scrollbar {
+  display: none;
 }
 .weather-week {
   min-width: calc(var(--forecast-days) * 65px);
