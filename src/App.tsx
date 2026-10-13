@@ -1,3 +1,4 @@
+import { PhotoGallery } from "./components/PhotoGallery";
 import { PartTitle } from "./components/PartTitle";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -162,21 +163,7 @@ export default function App() {
             <p className="eyebrow">WE ARE GETTING MARRIED</p>
             <h1>{c.title}</h1>
             <p className="hero-subtitle">{c.subtitle}</p>
-            <div className="hero-art">
-              <img
-                src={invitation.hero}
-                alt={
-                  language === "zh"
-                    ? "粉色水彩新郎新娘与小猫插画"
-                    : language === "ko"
-                      ? "분홍 수채화 신랑·신부와 고양이 일러스트"
-                      : "Pink watercolor bride and groom with a cat"
-                }
-                fetchPriority="high"
-                width="800"
-                height="1200"
-              />
-            </div>
+            <PhotoGallery language={language} />
             <div className="hero-names">
               <span>{c.names[0]}</span>
               <i>&</i>
