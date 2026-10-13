@@ -265,8 +265,8 @@ export default function App() {
           </section>
           <section className="venue-section section" id="venue">
             <RibbonCharm className="timeline-sprig" />
-            <p className="eyebrow">{c.weddingPart}</p>
-            <h2>Wedding Day</h2>
+            <p className="eyebrow">{c.weddingEyebrow}</p>
+            <h2 className="part-title">{c.weddingPart}</h2>
             <h3 className="venue-name">{c.venueLabel}</h3>
             <p className="address">{c.address}</p>
             <LocationMap

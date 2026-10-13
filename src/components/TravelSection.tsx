@@ -20,6 +20,7 @@ const hotels = [
 const copy = {
   zh: {
     part: "PART 2｜交通与住宿",
+    eyebrow: "Getting Here & Staying Over",
     arrivalTitle: "抵达南京",
     arrival:
       "乘坐高铁或火车，可选择南京站、南京南站；乘坐飞机，可选择南京禄口国际机场。请提前将抵达时间及同行人数告诉我们，方便沟通行程。",
@@ -37,6 +38,7 @@ const copy = {
   },
   ko: {
     part: "PART 2｜교통과 숙박",
+    eyebrow: "Getting Here & Staying Over",
     arrivalTitle: "난징에 오시는 길",
     arrival:
       "고속철도나 기차로 오시면 난징역 또는 난징남역, 비행기로 오시면 난징 루커우 국제공항을 이용하실 수 있습니다. 일정 조율을 위해 도착 시간과 동행 인원을 미리 알려 주세요.",
@@ -53,7 +55,8 @@ const copy = {
     ],
   },
   en: {
-    part: "PART 2｜TRAVEL & STAY",
+    part: "PART 2｜Travel & Stay",
+    eyebrow: "Plan your visit",
     arrivalTitle: "Arriving in Nanjing",
     arrival:
       "By high-speed rail or train, arrive at Nanjing Railway Station or Nanjing South Railway Station. By air, arrive at Nanjing Lukou International Airport. Please let us know your arrival time and the number of people travelling with you in advance so we can coordinate your plans.",
@@ -82,8 +85,8 @@ export function TravelSection({
   return (
     <section className="travel-section section" id="travel">
       <RibbonCharm className="section-sprig" />
-      <p className="eyebrow">{c.part}</p>
-      <h2>Getting Here &amp; Staying Over</h2>
+      <p className="eyebrow">{c.eyebrow}</p>
+      <h2 className="part-title">{c.part}</h2>
       <div className="travel-copy">
         <h3>{c.arrivalTitle}</h3>
         <p>{c.arrival}</p>

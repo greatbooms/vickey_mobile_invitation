@@ -629,6 +629,11 @@ h3,
 .travel-section h2 {
   text-wrap: balance;
 }
+.part-title {
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+  letter-spacing: 1px;
+}
 .travel-copy {
   margin-top: 30px;
   text-align: left;

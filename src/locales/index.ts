@@ -17,6 +17,7 @@ export interface Copy {
   events: { title: string; note: string }[];
   venueTitle: string;
   weddingPart: string;
+  weddingEyebrow: string;
   venueLabel: string;
   venueName: string;
   address: string;
@@ -77,6 +78,7 @@ export const locales: Record<Language, Copy> = {
     ],
     venueTitle: "婚礼地点",
     weddingPart: "PART 1｜婚礼时刻",
+    weddingEyebrow: "Wedding Day",
     venueLabel: "婚礼地点：南京·山囿里",
     venueName: "南京山囿里酒店",
     address: "南京市玄武区博爱路18号T80科技文化国际社区35栋",
@@ -144,7 +146,8 @@ export const locales: Record<Language, Copy> = {
       { title: "After party~", note: "More music, laughter and celebration" },
     ],
     venueTitle: "Wedding venue",
-    weddingPart: "PART 1｜THE CELEBRATION",
+    weddingPart: "PART 1｜Wedding Day",
+    weddingEyebrow: "Celebrate with us",
     venueLabel: "Wedding venue: Shanyouli, Nanjing",
     venueName: "南京山囿里酒店",
     address:
@@ -216,7 +219,8 @@ export const locales: Record<Language, Copy> = {
       { title: "After party~", note: "음악과 함께 이어지는 즐거운 밤" },
     ],
     venueTitle: "오시는 길",
-    weddingPart: "PART 1｜결혼식의 순간",
+    weddingPart: "PART 1｜결혼식 안내",
+    weddingEyebrow: "Wedding Day",
     venueLabel: "결혼식 장소: 난징 · 산유리",
     venueName: "南京山囿里酒店",
     address:
