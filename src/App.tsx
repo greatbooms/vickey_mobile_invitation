@@ -9,8 +9,7 @@ import {
   MapPin,
   Navigation,
   Sparkles,
-  TrainFront,
-  Car,
+  Phone,
   Camera,
   Wine,
   Gem,
@@ -346,11 +345,10 @@ export default function App() {
               </button>
             </div>
             <div className="transport">
-              {c.transport.map((item, i) => {
-                const Icon = [Car, TrainFront, Heart][i];
+              {c.transport.map((item) => {
                 return (
                   <div key={item.title}>
-                    <Icon size={20} strokeWidth={1.5} />
+                    <Phone size={20} strokeWidth={1.5} />
                     <div>
                       <h4>{item.title}</h4>
                       <p>{item.note}</p>

@@ -85,11 +85,9 @@ export const locales: Record<Language, Copy> = {
     loadMap: "查看互动地图",
     copyAddress: "复制地址",
     transport: [
-      { title: "自驾", note: "停车位置与入口信息将在婚礼前补充。" },
-      { title: "公共交通", note: "地铁、公交与步行路线将在婚礼前补充。" },
       {
-        title: "温馨提示",
-        note: "欢迎从迎宾合影环节开始，与我们共度这一天。",
+        title: "当天联络人：［姓名］",
+        note: "联系电话：［手机号］",
       },
     ],
     shareTitle: "分享我们的喜悦",
@@ -157,16 +155,8 @@ export const locales: Record<Language, Copy> = {
     copyAddress: "Copy address",
     transport: [
       {
-        title: "By car",
-        note: "Parking and entrance details will be added before the wedding.",
-      },
-      {
-        title: "Public transport",
-        note: "Metro, bus and walking directions will be added before the wedding.",
-      },
-      {
-        title: "A little reminder",
-        note: "Join us from the welcome and photo session to celebrate together.",
+        title: "Wedding day contact: [Name]",
+        note: "Phone: [Phone number]",
       },
     ],
     shareTitle: "Share our joy",
@@ -237,16 +227,8 @@ export const locales: Record<Language, Copy> = {
     copyAddress: "주소 복사",
     transport: [
       {
-        title: "자가용",
-        note: "주차장 위치와 입구 안내는 추후 알려 드리겠습니다.",
-      },
-      {
-        title: "대중교통",
-        note: "지하철·버스 이용 안내는 추후 알려 드리겠습니다.",
-      },
-      {
-        title: "안내 말씀",
-        note: "환영 및 포토타임부터 함께해 주시면 더욱 기쁘겠습니다.",
+        title: "당일 연락 담당자: [이름]",
+        note: "연락처: [휴대전화 번호]",
       },
     ],
     shareTitle: "기쁜 소식을 나눠요",
